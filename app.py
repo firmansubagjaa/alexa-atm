@@ -28,16 +28,12 @@ class Bank:
         rekening = "100" + str(user_id)
         Bank.__counter += 1
         
-        self.__user_database["username"] = username_input
-        self.__user_database["password"] = password_input
-        self.__user_database["Balance"] = balance_input
-        
         user_baru = User(user_id, username_input, password_input, rekening, balance_input)
         
         self.__user_database[username_input] = user_baru
         
-        print(f"Registrasi berhasil! Nomor rekening Anda: {rekening}")
-        print(self.__user_database)
+        print(f"Registrasi berhasil! Nomor rekening Anda: {rekening}, sebagai review awal:")
+        print(self.__user_database[username_input])
         
     def login(self, username, password):
         pass
