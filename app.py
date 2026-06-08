@@ -9,8 +9,26 @@ class User:
     def get_username(self):
         return self.__username
     
-    def deposit(self):
-        pass
+    def deposit(self, amount):
+        if amount > 0:
+            self.__balance += amount
+            print(f"Berhasil deposit: Rp{amount}. Saldo sekarang: Rp{self.__balance}")
+        else:
+            print("Gagal! Jumlah deposit harus lebih besar dari 0!")
+            
+    
+    def withdraw(self, amount):
+        if amount <= 0:
+            print("Gagal! Jumlah penarikan harus lebih besar dari 0.")
+        elif amount > self.__balance:
+            print("Gagal! Saldo tidak mencukupi.")
+        else:
+            self.__balance -= amount
+            print(f"Berhasil tarik tunai: Rp{amount}. Saldo sisa: Rp{self.__balance}")
+    
+    def get_balance(self):
+        return self.__balance
+        
 
 
 class Bank:
@@ -33,7 +51,6 @@ class Bank:
         self.__user_database[username_input] = user_baru
         
         print(f"Registrasi berhasil! Nomor rekening Anda: {rekening}, sebagai review awal:")
-        print(self.__user_database[username_input])
         
     def login(self, username, password):
         pass
